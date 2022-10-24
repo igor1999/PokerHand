@@ -54,21 +54,25 @@ class Finder implements FinderInterface
             throw new TooLessException($cards);
         }
 
+        $suits = [];
         foreach (SuitEnum::cases() as $suit) {
             $suitCards = $cards->findBySuit($suit);
 
             if (!empty($suitCards)) {
-                $this->suits[$suit->name] = $this->createCollection($suitCards)->order();
+                $suits[$suit->name] = $this->createCollection($suitCards)->order();
             }
         }
+        $this->suits = $suits;
 
+        $ranges = [];
         foreach (RangeEnum::cases() as $range) {
             $rangeCards = $cards->findByRange($range);
 
             if (!empty($rangeCards)) {
-                $this->ranges[$range->value] = $this->createCollection($rangeCards);
+                $ranges[$range->value] = $this->createCollection($rangeCards);
             }
         }
+        $this->ranges = $ranges;
     }
 
     /**
@@ -235,6 +239,11 @@ class Finder implements FinderInterface
             return ($collection->getFirst()->getRange() != $range) && ($collection->getLength() >= 2);
         };
         $kickers = array_filter($this->getRanges(), $f);
+
+        if (empty($kickers)) {
+            throw new NotFoundException('Full House');
+        }
+
         $kicker = array_pop($kickers);
 
         return $this->getHandFactory()->createFullHouse(

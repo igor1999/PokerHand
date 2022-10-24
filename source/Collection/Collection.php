@@ -184,7 +184,7 @@ class Collection implements CollectionInterface
             $cards = $this->findByRange($range);
 
             if (!empty($cards)) {
-                $result[] = $cards[0];
+                $result[] = array_shift($cards);
             }
         }
 
