@@ -112,7 +112,7 @@ class Factory implements FactoryInterface
 
         list($range, $suit) = $contents;
 
-        $range = RangeEnum::from($range);
+        $range = constant(RangeEnum::class . '::' . $range);
         $suit =constant(SuitEnum::class . '::' . $suit);
 
         return $this->createCard($suit, $range);
