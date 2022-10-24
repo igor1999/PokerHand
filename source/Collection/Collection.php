@@ -101,7 +101,7 @@ class Collection implements CollectionInterface
     {
         $f = function(CardInterface $card1, CardInterface $card2)
         {
-            return match ($card2->isHigher($card1)) {
+            return match ($card1->isHigher($card2)) {
                 true => 1,
                 false => -1,
                 default => 0,

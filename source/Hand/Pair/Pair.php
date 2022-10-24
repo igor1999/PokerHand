@@ -64,7 +64,6 @@ class Pair extends AbstractHand implements PairInterface
         if (!($condition1 && $condition2)) {
             throw new NotValidException('Pair');
         }
-
         $this->pairCard1 = $pairCard1;
         $this->pairCard2 = $pairCard2;
 

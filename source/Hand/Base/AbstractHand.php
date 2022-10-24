@@ -88,7 +88,7 @@ abstract class AbstractHand implements HandInterface
             return $card->getRange();
         };
         $ranges = array_map($f, $cards->getCards());
-        $ranges = array_unique($ranges);
+        $ranges = array_unique($ranges,SORT_REGULAR);
 
         return count($ranges) == $cards->getLength();
     }
