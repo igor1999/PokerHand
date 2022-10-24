@@ -72,7 +72,7 @@ abstract class AbstractHand implements HandInterface
             return $card->getSuit();
         };
         $suits = array_map($f, $cards->getCards());
-        $suits = array_unique($suits);
+        $suits = array_unique($suits, SORT_REGULAR);
 
         return count($suits) == 1;
     }
