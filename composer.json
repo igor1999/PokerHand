@@ -9,8 +9,8 @@
         "php": "^8.1"
     },
     "autoload": {
-        "classmap": [
-            "PokerHand"
-        ]
+        "psr-4": {
+            "PokerHand\\": "source"
+        }
     }
 }
