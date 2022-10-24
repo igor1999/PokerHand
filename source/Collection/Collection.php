@@ -22,7 +22,7 @@ class Collection implements CollectionInterface
      * @param CardInterface[] $cards
      * @throws DuplicatedCardException
      */
-    public function __construct(array $cards)
+    public function __construct(array $cards = [])
     {
         foreach ($cards as $card) {
             $this->add($card);
