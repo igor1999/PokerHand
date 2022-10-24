@@ -369,8 +369,8 @@ class Finder implements FinderInterface
         $pair1 = array_pop($pairs);
         $pair2 = array_pop($pairs);
 
-        $range1 = $pair1[0]->getRange();
-        $range2 = $pair2[0]->getRange();
+        $range1 = $pair1->getFirst()->getRange();
+        $range2 = $pair2->getFirst()->getRange();
 
         $f = function(CollectionInterface $collection) use ($range1, $range2)
         {
