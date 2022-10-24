@@ -1,5 +1,7 @@
 <?php
 
+/** @noinspection PhpUnhandledExceptionInspection */
+
 use PokerHand\Card\Factory\Factory;
 use PokerHand\Collection\Collection;
 use PokerHand\Finder\Finder;
