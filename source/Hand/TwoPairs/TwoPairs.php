@@ -67,7 +67,7 @@ class TwoPairs extends AbstractHand implements TwoPairsInterface
             throw new NotValidException('Two Pairs');
         }
 
-        if ($firstPairCard1->getRange() > $secondPairCard1->getRange()) {
+        if ($firstPairCard1->isHigher($secondPairCard1)) {
             $this->highPairCard1 = $firstPairCard1;
             $this->highPairCard2 = $firstPairCard2;
 
