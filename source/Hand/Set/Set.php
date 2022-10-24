@@ -71,7 +71,7 @@ class Set extends AbstractHand implements SetInterface
         $this->secondSetCard = $secondSetCard;
         $this->thirdSetCard = $thirdSetCard;
 
-        $kickerCondition = $firstKicker->getRange() > $secondKicker->getRange();
+        $kickerCondition = $firstKicker->getRange()->value > $secondKicker->getRange()->value;
         $this->highKicker = $kickerCondition ? $firstKicker : $secondKicker;
         $this->lowKicker = $kickerCondition ? $secondKicker : $firstKicker;
     }
